@@ -327,6 +327,7 @@ open class FABMenu: View {
   open override func layoutSubviews() {
     super.layoutSubviews()
     fabButton?.frame = bounds
+    fabButton?.bounds = bounds // as bounds get .zero on iOS 14 SDK
     fabButton?.setNeedsLayout()
     fabButton?.layoutIfNeeded()
     spring.baseSize = bounds.size

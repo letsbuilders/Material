@@ -67,7 +67,7 @@ open class SpringAnimation {
   /// An Optional base view size.
   open var baseSize = CGSize(width: 48, height: 48) {
     didSet {
-      reload()
+//      reload() // as reloading hides button on iOS 14
     }
   }
   
