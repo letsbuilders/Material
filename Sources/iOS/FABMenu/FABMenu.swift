@@ -324,13 +324,15 @@ open class FABMenu: View {
     }
   }
   
-  open override func layoutSubviews() {
+  open override func layoutSubviews() { // layout gets excuted twice on iOS 14 SDK prior it was called once.
     super.layoutSubviews()
     fabButton?.frame = bounds
     fabButton?.bounds = bounds // as bounds get .zero on iOS 14 SDK
     fabButton?.setNeedsLayout()
     fabButton?.layoutIfNeeded()
-    spring.baseSize = bounds.size
+    if isEnabled { // as reloading hides button on iOS 14
+        spring.baseSize = bounds.size
+    }
   }
   
   open override func prepare() {
